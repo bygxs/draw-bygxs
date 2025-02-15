@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 // Pen Icon Component
 const PenIcon = ({ selected }: { selected: boolean }) => (
   <svg
-    className={`w-8 h-8 ${selected ? "text-blue-500" : "text-gray-600"}`} // Larger icon size for better touch interaction
+    className={`w-8 h-8 ${selected ? "text-blue-500" : "text-gray-600"}`}
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -78,6 +78,16 @@ export default function DrawingPage() {
     setCanvasColor(e.target.value); // Set the new canvas background color
   };
 
+  const openCanvasColorPicker = () => {
+    const canvasColorPicker = document.getElementById("canvasColorPicker") as HTMLInputElement;
+    canvasColorPicker?.click();
+  };
+
+  const openPenColorPicker = () => {
+    const penColorPicker = document.getElementById("penColorPicker") as HTMLInputElement;
+    penColorPicker?.click();
+  };
+
   return (
     <div className="h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       {/* Toolbar */}
@@ -85,14 +95,14 @@ export default function DrawingPage() {
         {/* Pen Tool */}
         <button
           className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-          onClick={() => document.getElementById("penColorPicker")?.click()}
+          onClick={openPenColorPicker}
         >
           <PenIcon selected={true} />
         </button>
 
         {/* Canvas Background Color Picker */}
         <button
-          onClick={() => document.getElementById("canvasColorPicker")?.click()}
+          onClick={openCanvasColorPicker}
           className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
         >
           <svg

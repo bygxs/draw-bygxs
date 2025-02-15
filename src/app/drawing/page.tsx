@@ -92,6 +92,17 @@ export default function DrawingPage() {
     }
   }, [penColor, canvasColor]);
 
+  const saveDrawing = () => {
+    if (canvasRef.current) {
+      const canvas = canvasRef.current;
+      const dataURL = canvas.toDataURL("image/png"); // Converts the canvas content to a base64 image URL
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = "drawing.png"; // Set the filename for the download
+      link.click();
+    }
+  };
+
   // Function to fill the canvas with a selected color
   const fillCanvas = () => {
     if (!canvasRef.current) return;

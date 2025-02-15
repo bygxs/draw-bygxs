@@ -1,4 +1,4 @@
-// pages/index.js
+/* // pages/index.js
 "use client"
 import { useState, useRef } from 'react';
 import { SketchPicker } from 'react-color';
@@ -29,3 +29,4 @@ const Home = () => {
 
 export default Home;
 
+ */

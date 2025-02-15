@@ -147,9 +147,18 @@ export default function DrawingPage() {
           <button
             className="flex items-center p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
             title="Pick Pen Color"
-            onClick={() => {
+            /*   onClick={() => {
               // Trigger the hidden color input
               document.getElementById("colorPicker").click();
+            }} */
+            onClick={() => {
+              // Trigger the hidden color input
+              const colorPicker = document.getElementById("colorPicker");
+              if (colorPicker) {
+                colorPicker.click();
+              } else {
+                console.error("Color picker element not found");
+              }
             }}
           >
             {/* Pencil Icon */}

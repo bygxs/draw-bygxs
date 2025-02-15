@@ -46,18 +46,18 @@ export default function DrawingPage() {
   };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       {/* Fixed Toolbar */}
-      <div className="p-4 bg-gray-100 border-b flex gap-4">
+      <div className="p-4 bg-gray-100 dark:bg-gray-800 border-b flex gap-4">
         <button
           onClick={() => setSelectedTool('pen')}
-          className={`px-4 py-2 ${selectedTool === 'pen' ? 'bg-blue-500 text-white' : 'bg-white'}`}
+          className={`px-4 py-2 ${selectedTool === 'pen' ? 'bg-blue-500 text-white' : 'bg-white dark:bg-gray-700 dark:text-white'}`}
         >
           Pen
         </button>
         <button
           onClick={() => setSelectedTool('eraser')}
-          className={`px-4 py-2 ${selectedTool === 'eraser' ? 'bg-blue-500 text-white' : 'bg-white'}`}
+          className={`px-4 py-2 ${selectedTool === 'eraser' ? 'bg-blue-500 text-white' : 'bg-white dark:bg-gray-700 dark:text-white'}`}
         >
           Eraser
         </button>
@@ -67,7 +67,7 @@ export default function DrawingPage() {
       <div className="flex-1 relative">
         <canvas
           ref={canvasRef}
-          className="w-full h-full touch-none"
+          className="w-full h-full touch-none bg-gray-200 dark:bg-gray-800"
           onMouseDown={startDrawing}
           onMouseUp={() => setIsDrawing(false)}
           onMouseMove={handleDraw}

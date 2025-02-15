@@ -12,15 +12,15 @@ const PenIcon = ({ selected }: { selected: boolean }) => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
+      strokeWidth={7}
       d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
     />
   </svg>
 );
 
 export default function DrawingPage() {
-  const [penColor, setPenColor] = useState<string>("#000000"); // Default pen color is black
-  const [canvasColor, setCanvasColor] = useState("#ffffff"); // Canvas background color
+  const [penColor, setPenColor] = useState<string>("#100000"); // Default pen color is black
+  const [canvasColor, setCanvasColor] = useState("#f0f0f0"); // Canvas background color
   const [isDrawing, setIsDrawing] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
@@ -78,12 +78,12 @@ export default function DrawingPage() {
   };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       {/* Toolbar */}
-      <div className="p-4 bg-gray-100 border-b flex gap-4 items-center">
+      <div className="p-4 bg-gray-100 dark:bg-gray-800 border-b flex gap-4 items-center">
         {/* Pen Tool */}
         <button
-          className="p-2 rounded-lg bg-white hover:bg-gray-50"
+          className="p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
           onClick={() => document.getElementById("penColorPicker")?.click()}
         >
           <PenIcon selected={true} />
@@ -98,10 +98,10 @@ export default function DrawingPage() {
         />
         <button
           onClick={() => document.getElementById("canvasColorPicker")?.click()}
-          className="p-2 rounded-lg bg-white hover:bg-gray-50"
+          className="p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
         >
           <svg
-            className="w-6 h-6 text-gray-600"
+            className="w-6 h-6 text-gray-600 dark:text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -135,10 +135,7 @@ export default function DrawingPage() {
       </div>
 
       {/* Canvas */}
-      <div
-        className="flex-1 relative"
-        style={{ backgroundColor: canvasColor }}
-      >
+      <div className="flex-1 relative" style={{ backgroundColor: canvasColor }}>
         <canvas
           ref={canvasRef}
           className="w-full h-full touch-none"

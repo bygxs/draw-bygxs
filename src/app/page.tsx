@@ -1,24 +1,22 @@
-// app/page.tsx
-
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col text-gray-800 dark:text-white">
       {/* Header */}
-      <header className="bg-white shadow-sm py-2 px-4">
+      <header className="bg-white dark:bg-gray-800 shadow-sm py-2 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-800">Paper</h1>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Paper</h1>
           {/* Search Bar */}
           <div className="relative w-64">
             <input
               type="text"
               placeholder="Search..."
-              className="w-full py-2 pl-10 pr-4 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-indigo-200"
+              className="w-full py-2 pl-10 pr-4 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring focus:ring-indigo-200"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -47,12 +45,15 @@ export default function Home() {
             </Link>
           </div>
 
-          <Link
-            href="/drawing"
-            className="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 transition duration-200"
-          >
-            + New Drawing
-          </Link>
+          <div>
+            <Link
+              href="/drawing"
+              className="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 transition duration-200"
+            >
+              + New Drawing
+            </Link>
+          </div>
+
           <div>
             <Link
               href="/drawingPage"
@@ -63,17 +64,17 @@ export default function Home() {
           </div>
 
           {/* Notebooks Section */}
-          <h2 className="text-xl font-semibold text-gray-800">Drawings</h2>
+          <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Drawings</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {drawings.map((drawing) => (
               <div
                 key={drawing.id}
-                className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-between cursor-pointer hover:shadow-lg transition duration-200"
+                className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 flex flex-col justify-between cursor-pointer hover:shadow-lg transition duration-200"
               >
-                <h3 className="text-lg font-medium text-gray-800">
+                <h3 className="text-lg font-medium text-gray-800 dark:text-white">
                   {drawing.title}
                 </h3>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   {drawing.description}
                 </p>
               </div>

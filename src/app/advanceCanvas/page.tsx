@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useRef, useEffect } from "react";
 
 // Pen Icon Component
@@ -78,35 +79,29 @@ export default function DrawingPage() {
     setCanvasColor(e.target.value); // Set the new canvas background color
   };
 
-  const openCanvasColorPicker = () => {
-    const canvasColorPicker = document.getElementById(
-      "canvasColorPicker"
-    ) as HTMLInputElement;
-    canvasColorPicker?.click();
-  };
-
-  const openPenColorPicker = () => {
-    const penColorPicker = document.getElementById(
-      "penColorPicker"
-    ) as HTMLInputElement;
-    penColorPicker?.click();
-  };
-
   return (
     <div className="h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       {/* Toolbar */}
       <div className="p-4 bg-gray-100 dark:bg-gray-800 border-b flex gap-6 items-center">
         {/* Pen Tool */}
-        <button
-          className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-          onClick={openPenColorPicker}
-        >
+        <button className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
           <PenIcon selected={true} />
         </button>
 
-        {/* Canvas Background Color Picker */}
+        {/* Pen Color Picker Button (Visible and opens color picker) */}
+        <button className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <input
+            type="color"
+            value={penColor}
+            onChange={handlePenColorChange}
+            className="w-8 h-8 cursor-pointer"
+            title="Pick Pen Color"
+          />
+        </button>
+
+        {/* Canvas Background Color Picker Button */}
         <button
-          onClick={openCanvasColorPicker}
+          onClick={() => document.getElementById("canvasColorPicker")?.click()}
           className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
         >
           <svg
@@ -124,33 +119,13 @@ export default function DrawingPage() {
           </svg>
         </button>
 
-        {/* Pen Color Input */}
-        <input
-          id="penColorPicker"
-          type="color"
-          value={penColor}
-          onChange={handlePenColorChange}
-          className="hidden"
-        />
-
-        {/* Canvas Color Input */}
+        {/* Canvas Color Input (hidden, for triggering pop-up) */}
         <input
           id="canvasColorPicker"
           type="color"
           value={canvasColor}
           onChange={handleCanvasColorChange}
           className="hidden"
-        />
-      </div>
-
-      {/* a  very different picker Canvas Color Input */}
-      <div>
-        <input
-          type="color"
-          value={penColor}
-          onChange={(e) => setPenColor(e.target.value)}
-          className="p-4 rounded-full shadow cursor-pointer"
-          title="Pen Color"
         />
       </div>
 
@@ -170,5 +145,3 @@ export default function DrawingPage() {
     </div>
   );
 }
-
-// lets see if it works

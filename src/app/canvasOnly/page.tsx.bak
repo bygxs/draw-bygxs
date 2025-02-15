@@ -1,10 +1,11 @@
-/* // pages/index.js
-"use client"
-import { useState, useRef } from 'react';
-import { SketchPicker } from 'react-color';
+// pages/index.js
+"use client";
+import React from "react";
+import { useState, useRef } from "react";
+import { SketchPicker } from "react-color";
 
 const Home = () => {
-  const [canvasColor, setCanvasColor] = useState('#ffffff'); // Default color
+  const [canvasColor, setCanvasColor] = useState("#ffffff"); // Default color
   const canvasRef = useRef(null);
 
   const handleColorChange = (color) => {
@@ -28,5 +29,3 @@ const Home = () => {
 };
 
 export default Home;
-
- */

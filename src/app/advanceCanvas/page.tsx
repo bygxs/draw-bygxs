@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 // Pen Icon Component
 const PenIcon = ({ selected }: { selected: boolean }) => (
   <svg
-    className={`w-6 h-6 ${selected ? "text-blue-500" : "text-gray-600"}`}
+    className={`w-8 h-8 ${selected ? "text-blue-500" : "text-gray-600"}`} // Larger icon size for better touch interaction
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -81,10 +81,10 @@ export default function DrawingPage() {
   return (
     <div className="h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       {/* Toolbar */}
-      <div className="p-4 bg-gray-100 dark:bg-gray-800 border-b flex gap-4 items-center">
+      <div className="p-4 bg-gray-100 dark:bg-gray-800 border-b flex gap-6 items-center">
         {/* Pen Tool */}
         <button
-          className="p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+          className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
           onClick={() => document.getElementById("penColorPicker")?.click()}
         >
           <PenIcon selected={true} />
@@ -93,10 +93,10 @@ export default function DrawingPage() {
         {/* Canvas Background Color Picker */}
         <button
           onClick={() => document.getElementById("canvasColorPicker")?.click()}
-          className="p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+          className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
         >
           <svg
-            className="w-6 h-6 text-gray-600 dark:text-white"
+            className="w-8 h-8 text-gray-600 dark:text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

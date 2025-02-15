@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useRef, useEffect } from "react";
 
 // Pen Icon Component
@@ -88,7 +87,7 @@ export default function DrawingPage() {
           <PenIcon selected={true} />
         </button>
 
-        {/* Pen Color Picker Button (Visible and opens color picker) */}
+        {/* Pen Color Picker Button - Visible */}
         <button className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
           <input
             type="color"
@@ -99,34 +98,16 @@ export default function DrawingPage() {
           />
         </button>
 
-        {/* Canvas Background Color Picker Button */}
-        <button
-          onClick={() => document.getElementById("canvasColorPicker")?.click()}
-          className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-        >
-          <svg
-            className="w-8 h-8 text-gray-600 dark:text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12h4a4 4 0 01-4 4H7zM15 5a2 2 0 012-2h4a2 2 0 012 2v12h-4M7 7h.01M11 7h.01"
-            />
-          </svg>
+        {/* Canvas Color Picker Button */}
+        <button className="p-3 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <input
+            type="color"
+            value={canvasColor}
+            onChange={handleCanvasColorChange}
+            className="w-8 h-8 cursor-pointer"
+            title="Pick Canvas Color"
+          />
         </button>
-
-        {/* Canvas Color Input (hidden, for triggering pop-up) */}
-        <input
-          id="canvasColorPicker"
-          type="color"
-          value={canvasColor}
-          onChange={handleCanvasColorChange}
-          className="hidden"
-        />
       </div>
 
       {/* Canvas */}

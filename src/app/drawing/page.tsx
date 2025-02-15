@@ -121,6 +121,7 @@ export default function DrawingPage() {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Header */}
       <header className="bg-white shadow-sm py-2 px-4">
+
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Back Button */}
           <button
@@ -144,6 +145,8 @@ export default function DrawingPage() {
             <span>Back</span>
           </button>
         </div>
+
+        
       </header>
 
       {/* Main Content */}

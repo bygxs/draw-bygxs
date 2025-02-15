@@ -20,7 +20,6 @@ const PenIcon = ({ selected }: { selected: boolean }) => (
 
 export default function DrawingPage() {
   const [penColor, setPenColor] = useState<string>("#100000"); // Default pen color is black
-  //const [canvasColor, setCanvasColor] = useState("#f0f0f0"); // Canvas background color
   const [canvasColor, setCanvasColor] = useState("#333333"); // Darker background
 
   const [isDrawing, setIsDrawing] = useState(false);
@@ -92,12 +91,6 @@ export default function DrawingPage() {
         </button>
 
         {/* Canvas Background Color Picker */}
-        <input
-          type="color"
-          value={canvasColor}
-          onChange={handleCanvasColorChange}
-          className="hidden"
-        />
         <button
           onClick={() => document.getElementById("canvasColorPicker")?.click()}
           className="p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
@@ -117,7 +110,7 @@ export default function DrawingPage() {
           </svg>
         </button>
 
-        {/* Hidden Pen Color Input */}
+        {/* Pen Color Input */}
         <input
           id="penColorPicker"
           type="color"
@@ -126,7 +119,7 @@ export default function DrawingPage() {
           className="hidden"
         />
 
-        {/* Hidden Canvas Color Input */}
+        {/* Canvas Color Input */}
         <input
           id="canvasColorPicker"
           type="color"

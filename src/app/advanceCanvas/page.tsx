@@ -20,7 +20,9 @@ const PenIcon = ({ selected }: { selected: boolean }) => (
 
 export default function DrawingPage() {
   const [penColor, setPenColor] = useState<string>("#100000"); // Default pen color is black
-  const [canvasColor, setCanvasColor] = useState("#f0f0f0"); // Canvas background color
+  //const [canvasColor, setCanvasColor] = useState("#f0f0f0"); // Canvas background color
+  const [canvasColor, setCanvasColor] = useState("#333333"); // Darker background
+
   const [isDrawing, setIsDrawing] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);

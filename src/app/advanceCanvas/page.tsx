@@ -79,12 +79,16 @@ export default function DrawingPage() {
   };
 
   const openCanvasColorPicker = () => {
-    const canvasColorPicker = document.getElementById("canvasColorPicker") as HTMLInputElement;
+    const canvasColorPicker = document.getElementById(
+      "canvasColorPicker"
+    ) as HTMLInputElement;
     canvasColorPicker?.click();
   };
 
   const openPenColorPicker = () => {
-    const penColorPicker = document.getElementById("penColorPicker") as HTMLInputElement;
+    const penColorPicker = document.getElementById(
+      "penColorPicker"
+    ) as HTMLInputElement;
     penColorPicker?.click();
   };
 
@@ -136,6 +140,17 @@ export default function DrawingPage() {
           value={canvasColor}
           onChange={handleCanvasColorChange}
           className="hidden"
+        />
+      </div>
+
+      {/* a  very different picker Canvas Color Input */}
+      <div>
+        <input
+          type="color"
+          value={penColor}
+          onChange={(e) => setPenColor(e.target.value)}
+          className="p-4 rounded-full shadow cursor-pointer"
+          title="Pen Color"
         />
       </div>
 

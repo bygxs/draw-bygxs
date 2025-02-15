@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -39,12 +38,29 @@ export default function Home() {
       <main className="flex-1 overflow-y-auto p-4">
         <div className="max-w-7xl mx-auto space-y-4">
           {/* Create Button */}
+          <div>
+            <Link
+              href="/advanceCanvas"
+              className="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 transition duration-200"
+            >
+              + advanced Drawing 
+            </Link>
+          </div>
+
           <Link
             href="/drawing"
             className="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 transition duration-200"
           >
             + New Drawing
           </Link>
+          <div>
+            <Link
+              href="/drawingPage"
+              className="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 transition duration-200"
+            >
+              + New Drawing TOO
+            </Link>
+          </div>
 
           {/* Notebooks Section */}
           <h2 className="text-xl font-semibold text-gray-800">Drawings</h2>
@@ -54,8 +70,12 @@ export default function Home() {
                 key={drawing.id}
                 className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-between cursor-pointer hover:shadow-lg transition duration-200"
               >
-                <h3 className="text-lg font-medium text-gray-800">{drawing.title}</h3>
-                <p className="text-sm text-gray-500 mt-2">{drawing.description}</p>
+                <h3 className="text-lg font-medium text-gray-800">
+                  {drawing.title}
+                </h3>
+                <p className="text-sm text-gray-500 mt-2">
+                  {drawing.description}
+                </p>
               </div>
             ))}
           </div>
